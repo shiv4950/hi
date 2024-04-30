@@ -1,4 +1,4 @@
-ass1 q1 
+#ass1 q1 
 
 import pandas as pd
 
@@ -16,7 +16,7 @@ dataset.sample(random_rows)
 
 dataset.info()
 
-## q2 A
+##q2 A
 
 import pandas as pd
 
@@ -81,7 +81,8 @@ df= df.dropna()
 df
 
 
-# ass2 Q1
+#ass2 Q1
+#apriori algo
 
 from mlxtend.frequent_patterns import apriori
 
@@ -116,7 +117,8 @@ filtered_rules = rules[(rules['lift'] >= min_lift) & (rules['antecedents'].apply
 print(filtered_rules[['antecedents', 'consequents', 'support', 'confidence']])
 
 
-# ass3 q1
+#ass3 q1
+#decision tree classifier
 
 from sklearn.preprocessing import LabelEncoder
 
@@ -163,7 +165,8 @@ df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\user.csv")
 df
 
 
-# ass3 q2
+#ass3 q2
+#guassionNB/bernoulli/multinomial classifier
 
 import pandas as pd
 
@@ -214,7 +217,8 @@ df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\Salary_Data.csv")
 
 df
 
-# ass 3 q3
+#ass 3 q3
+#simple linear regression
 
 import pandas as pd
 
@@ -251,7 +255,8 @@ plt.ylabel('Salary')
 plt.show()
 
 
-# ass 4 q1
+#ass 4 q1
+#k-means clustering
 
 import pandas as pd
 
