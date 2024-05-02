@@ -1,288 +1,452 @@
-#ass1 q1 
+# ass1
 
-import pandas as pd
+# Q1.Considerfollowingtwolists: a=[1,2,2,3,5,8,13,21,34,55,89] b=[1,2,3,4,5,6,7,8,9,10,11,12,13] Write a python program that returns a list that contains only the elements that are common 
 
-dataset = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\cars.csv")
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 
-dataset
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
-dataset.shape
+c=[]
 
-dataset.head(5)
+for i in range(len(a)):
 
-random_rows=5
+    if a[i] in b:
+    
+        c.append(a[i])
+c=set(c)
 
-dataset.sample(random_rows)
-
-dataset.info()
-
-##q2 A
-
-import pandas as pd
-
-import seaborn as sns
-
-import matplotlib.pyplot as plt
-
-df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\iris.csv")
-
-df
-
-sns.countplot('Species',data=df)
-
-plt.title('Frequency of Three Species')
-
-plt.show()
-
-###B
-
-import pandas as pd
-
-import seaborn as sns
-
-import matplotlib.pyplot as plt
-
-df.hist(column='SepalLengthCm',by ='Species', bins=20,figsize=(10,6),color=['red'])
-
-plt.suptitle("Histogram for Sepal Length for iris dataset")
-
-plt.show()
-
-###Q3
-
-import pandas as pd
-
-df= pd.DataFrame(columns=['name','salary','department'])
-
-df.loc[0]=['sagar',250000,'computer']
-
-df.loc[1]=['suraj',300000,'It']
-
-df.loc[2]=['tejas',260000,'computer']
-
-df.loc[3]=['rushi',280000,'It']
-
-df.loc[4]=['shonali',None,None]
-
-df.loc[5]=['sarthak',250000,'IT']
-
-df.loc[6]=['maya',280000,'computer']
-
-df.loc[7]=['mitali',250000,'IT']
-
-df.loc[8]=['sahil',270000,'computer']
-
-df.loc[9]=['nilam',250000,None]
-
-df
-
-df= df.dropna()
-
-df
+print(c)
 
 
-#ass2 Q1
-#apriori algo
+# Q2. Write a python program to create a list of ‘n’ integers . Find all prime numbers from the above created list and store them in a separate list. Display both list.(Using Recursion) 
 
-from mlxtend.frequent_patterns import apriori
+lst = []
 
-from mlxtend.frequent_patterns import association_rules
+n =int(input("enter no of elements :")) 
 
-import pandas as pd
+for i in range(0,n):  
+
+ele = int(input())   
+
+lst.append(ele)   
+
+print(lst)  
+
+primes = [num for num in lst if num > 1 and num % 2!=0 and num % 3!=0]
+
+print("prime numbers are : ",primes)   
+
+# Q3.Write a program to create a list of ‘n’ integers and find their median.  
+
+import numpy as np 
+
+lst = [] 
+
+n =int(input("enter no of elements :")) 
+
+for i in range(0,n): 
+
+ele = int(input()) 
+
+lst.append(ele)
+
+print(lst) 
+
+
+# Q4.Write a python program to accept the strings which contain all vowels.
+
+
+def check(string) :
+
+ string = string.lower()
+ 
+vowels = set("aeiou"	
+
+ s = set({})
+ 
+	for char in string :
+
+		if char in vowels :
+
+   s.add(char)
+		
+  else:
+	
+   pass
+	
+ if len(s) == len(vowels) :
+
+  print("Accepted")
+	
+ else :
+
+  print("Not Accepted")
+
+if
+
+__name__ == "__main__" :	
+
+ string = "SEEquoiaL"
+
+ check(string)
+
+
+ #  Q6.Write a python function to find all duplicates in the list 
+
+  def find_duplicates(lst):
+
+    seen = set()
+    
+    duplicates = set()
+    
+    for items in lst:
+    
+        if item in seen:
+        
+            duplicates.add(item)
+        
+        else:
+        
+            seen.add(item)
+    
+    return list(duplicates)
+
+user_input = input("Enter the inputs",list)
+
+duplicates = find_duplicates(user_input)
+
+print("Duplicates in the list:",duplicates)
+
+
+# Q7. largest number
+
+def find_largest_number(numbers):
+
+    if not numbers:
+
+        return None  
+
+    largest = numbers[0]
+
+    for num in numbers:
+        
+        if num > largest:
+        
+            largest = num
+
+    return largest
+
+my_numbers = [10, 5, 8, 20, 15, 25, 18]
+
+largest_number = find_largest_number(my_numbers)
+
+if largest_number is not None:
+ 
+    print("The largest number in the list is:", largest_number)
+
+else:
+
+    print("The list is empty.")
+
+# Q8. unique ele
 
 import numpy as np
 
-dataset = pd.read_csv(r"C:\Users\HP\Downloads\archive (3)\Groceries_dataset.csv", header=None)
+def unique(list1):
+	
+ x = np.array(list1)
 
-records = []
+ print(np.unique(x))
 
-for i in range(0, len(dataset)):
+list1 = [10, 20, 10, 30, 40, 40]
 
-    records.append([str(dataset.values[i, j]) for j in range(0, len(dataset.columns))])
+print("the unique values from 1st list is")
 
-min_support = 0.0040
+unique(list1)
 
-min_confidence = 0.2
 
-min_lift = 3
+list2 = [1, 2, 1, 1, 3, 4, 3, 3, 5]
 
-min_length = 2
+print("\nthe unique values from 2nd list is")
 
-frequent_itemsets = apriori(records, min_support=min_support, use_colnames=True)
+unique(list2)
 
-rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_confidence)
+# Q9 square of all ele
 
-filtered_rules = rules[(rules['lift'] >= min_lift) & (rules['antecedents'].apply(lambda x: len(x)) >= min_length)]
+def square_num(n):
 
-print(filtered_rules[['antecedents', 'consequents', 'support', 'confidence']])
+    return n * n
 
+nums = [4, 5, 2, 9]
 
-#ass3 q1
-#decision tree classifier
+print("Original List: ", nums)
 
-from sklearn.preprocessing import LabelEncoder
+result = map(square_num, nums)
 
-from sklearn.tree import DecisionTreeClassifier
+print("Square the elements of the said list using map():")
 
-from sklearn.metrics import accuracy_score
+print(list(result))
 
-from sklearn.model_selection import train_test_split
+# Q10. gcd lcd
 
-data = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\iris.csv")
+import math
 
-X = data.drop('Species', axis=1)
+def find_gcd(x, y):
 
-y = data['Species']
+    return math.gcd(x, y)
 
-le = LabelEncoder()
+def find_lcm(x, y):
+   
+    return abs(x * y) // find_gcd(x, y)
 
-y = le.fit_transform(y)
+try:
+    
+    input_numbers = input("Enter a list of numbers separated by spaces: ")
+    
+    numbers = [int(num) for num in input_numbers.split()]
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+except ValueError:
 
-clf_entropy = DecisionTreeClassifier(criterion='entropy')
+    print("Invalid input. Please enter valid numbers.")
+    
+    exit()
 
-clf_entropy.fit(X_train, y_train)
+if len(numbers) < 2:
+    
+    print("Please provide at least two numbers.")
+    
+    exit()
 
-y_pred_entropy = clf_entropy.predict(X_test)
+gcd_result = numbers[0]
 
-accuracy_entropy = accuracy_score(y_test, y_pred_entropy)
+lcm_result = numbers[0]
 
-print(f"Accuracy using entropy criterion: {accuracy_entropy}")
+for num in numbers[1:]:
 
-clf_gini = DecisionTreeClassifier(criterion='gini')
+    gcd_result = find_gcd(gcd_result, num)
+    
+    lcm_result = find_lcm(lcm_result, num)
 
-clf_gini.fit(X_train, y_train)
+print("Input numbers:", numbers)
 
-y_pred_gini = clf_gini.predict(X_test)
+print("GCD of the numbers:", gcd_result)
 
-accuracy_gini = accuracy_score(y_test, y_pred_gini)
+print("LCM of the numbers:", lcm_result)
 
-print(f"Accuracy using gini index criterion: {accuracy_gini}")
+# Q11 shape area triangle rect circle cone
 
-df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\user.csv")
+import math
 
-df
+class Shape:
 
+    def calculate_triangle_area(self, base, height):
+    
+        return 0.5 * base * height
 
-#ass3 q2
-#guassionNB/bernoulli/multinomial classifier
+    def calculate_rectangle_area(self, length, width):
+        
+        return length * width
 
-import pandas as pd
+    def calculate_circle_area(self, radius):
+        
+        return math.pi * radius**2
 
-from sklearn.model_selection import train_test_split
+    def calculate_cone_area( , radius, height):
+        
+        slant_height = math.sqrt(radius**2 + height**2)
+        
+        return math.pi * radius * (radius + slant_height)
 
-from sklearn.naive_bayes import GaussianNB, BernoulliNB, MultinomialNB
+if __name__ == "__main__":
+    
+    my_shape = Shape()
 
-from sklearn.metrics import accuracy_score
+    triangle_area = my_shape.calculate_triangle_area(5, 8)
+    
+    rectangle_area = my_shape.calculate_rectangle_area(4, 6)
+    
+    circle_area = my_shape.calculate_circle_area(3)
+    
+    cone_area = my_shape.calculate_cone_area(2, 4)
 
-df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\user.csv")
+    print("Area of Triangle:", triangle_area)
+    
+    print("Area of Rectangle:", rectangle_area)
+    
+    print("Area of Circle:", circle_area)
+    
+    print("Area of Cone:", cone_area)
 
+    
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-gnb = GaussianNB()
+# ass2
 
-bnb = BernoulliNB()
+# Q1 lambda for add 2 num
 
-mnb = MultinomialNB()
+# a
+add_numbers = lambda x, y: x + y
 
-gnb.fit(X_train, y_train)
+num1 = 1
 
-bnb.fit(X_train, y_train)
+num2 = 2
 
-mnb.fit(X_train, y_train)
+result = add_numbers(num1, num2)
 
-y_pred_gnb = gnb.predict(X_test)
+print("The sum of", num1, "and", num2, "is", result)
 
-y_pred_bnb = bnb.predict(X_test)
+# b lambda for even or not
 
-y_pred_mnb = mnb.predict(X_test)
+numbers = input("Enter a list of numbers separated by spaces: ").split()
 
-accuracy_gnb = accuracy_score(y_test, y_pred_gnb)
+numbers = [int(num) for num in numbers]
 
-accuracy_bnb = accuracy_score(y_test, y_pred_bnb)
+results = list(map(lambda num: "even" if num % 2 == 0 else "odd", numbers))
 
-accuracy_mnb = accuracy_score(y_test, y_pred_mnb)
+for num, result in zip(numbers, results):
 
-print(f'Accuracy of GaussianNB: {accuracy_gnb:.2f}')
+    print("Number {} is {}".format(num, result))
 
-print(f'Accuracy of BernoulliNB: {accuracy_bnb:.2f}')
+    
+# c factorial
 
-print(f'Accuracy of MultinomialNB: {accuracy_mnb:.2f}')
+x = lambda num : 1 if num <= 1 else num*x(num-1)
 
-import pandas as pd
+number = int(input('Enter number: '))
 
-df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\Salary_Data.csv")
+print('%d != %d' %(number, x(number)))
 
-df
+# d maximum ele
 
-#ass 3 q3
-#simple linear regression
+lst = [20, 10, 20, 4, 100]
 
-import pandas as pd
+print(max(lst, key=lambda value: int(value)) )
 
-from sklearn.model_selection import train_test_split
+# Q2 
+# a palindrome
 
-from sklearn.linear_model import LinearRegression
+def isPalindrome(string): 
+    
+    if (string == string[::-1]) : 
+        
+        return "The string is a palindrome." 
+    else: 
 
-import matplotlib.pyplot as plt
+        return "The string is not a palindrome." 
+ 
+string = input ("Enter string: ") 
+ 
+print(isPalindrome(string))
 
-df = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\Salary_Data.csv")
 
-X  = df[['YearsExperience']]
+# b sort a list of string alphabetically
 
-y = df['Salary']
+my_dict = {
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+"L1": ["Red", "Green", "Yellow", "Blue"],
 
-model = LinearRegression()
+ "L2": ["Violet", "Dark green", "Pink", "White"],
 
-model.fit(X_train, y_train)
+ "L3": ["Black", "Aqua", "Beige", "Aqua"],
 
-y_pred = model.predict(X_test)
+ "L4": ["Alice Blue", "Cyan", "Gold", "Silver"]
 
-plt.scatter(X_test, y_test, color='red')
+}
 
-plt.plot(X_test, y_pred, color='blue', linewidth=3)
 
-plt.title('Simple Linear Regression')
+print("Before Sorting:")
 
-plt.xlabel('Years of Experience')
 
-plt.ylabel('Salary')
+for key, value in my_dict.items():
 
-plt.show()
+ print(key + ": " + str(value))
 
+sorted_dict = {key: sorted(value, key=lambda x: x.lower())
 
-#ass 4 q1
-#k-means clustering
+   for key, value in my_dict.items()}
 
-import pandas as pd
+print("\nAfter Sorting:")
 
-import numpy as np
+for key, value in sorted_dict.items():
 
-from sklearn.cluster import KMeans
+ print(key + ": " + str(value))
 
-import matplotlib.pyplot as plt
+ # c area of triangle
 
 
-data = pd.read_csv(r"C:\Users\HP\OneDrive\Desktop\DS\income.csv")
+calculate_area = lambda base, height: 0.5 * base * height
 
-X = data[['age','fnlwgt']]
+base = float(input("Enter the base length of the triangle: "))
 
-num_clusters = 3
+height = float(input("Enter the height of the triangle: "))
 
-kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+area = calculate_area(base, height)
 
+print("The area of the triangle is:", area)
 
-plt.scatter(X['age'], X['fnlwgt'],cmap='viridis')
+# d list is sublist
 
+from functools import reduce
 
-plt.title('K-means Clustering')
+from operator import and_ 
 
-plt.xlabel('Feature 1')
+def contains(superset, subset) -> bool:
+	
+	return reduce(and_, [i in superset for i in subset])
 
-plt.ylabel('Feature 2')
+superset = [3, 4, 5, 6]
 
-plt.show()
+subset = [4, 5]
+
+not_subset = [4, 5, 7]
+
+
+print(f"{subset} is in {superset}: {contains(superset,subset)}")
+
+print(f"{not_subset} is in {superset}: {contains(superset,not_subset)}")
+
+# q3 curried func power of num
+
+def power(base):
+  
+  def inner(exponent):
+   
+    if exponent == 0:
+    
+      return 1
+    
+    else:
+    
+      return base * inner(exponent - 1)
+  
+  return inner
+
+
+square = power(2)  
+
+cube = power(3)  
+
+result = square(5)  
+
+another_result = cube(4)  
+
+print(result)
+print(another_result)
+
+# Q4 palindrome 
+
+def is_palindrome(check_type=str):
+ 
+  def inner(text):
+   
+   processed_text = check_type(text).lower().replace(" ", "")
+   
+    return processed_text == processed_text[::-1]
+
+  return inner
+
+# Q5 hypotenuse 
+
+
+
+
