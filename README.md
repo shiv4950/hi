@@ -1,4 +1,4 @@
-Ass 2 q1 strict soft mode
+okAss 2 q1 strict soft mode
 
  const number_order = (x, y, z) => {
 
@@ -1030,5 +1030,394 @@ export { displayTotal };
   </body>
 
 </html>
+
+# ass 3 ts
+
+Q1 variable name variable age.......
+
+const printDetails = () => {
+
+  let name: string = "Alice";
+  
+  let age: number = 30;
+
+  console.log(`Name: ${name}`);
+  
+  console.log(`Age: ${age}`);
+  
+};
+
+printDetails();
+
+
+
+Q2 declare var using let const var....
+
+....
+
+
+
+const demonstrateScoping = () => {
+  
+  var message = "This is a var message";
+
+  if (true) {
+    
+    
+    let blockMessage = "This is a let message";
+    
+    console.log("Inside if:", message, blockMessage); 
+  }
+
+  console.log("Outside if:", message); 
+
+  
+  const PI = 3.14;
+  
+  console.log("PI value:", PI);
+};
+
+demonstrateScoping();
+
+
+Q3 convers a variable to ons parseint.....
+
+
+
+const convertTypes = () => {
+  
+  let strNum: string = "123";
+
+  
+  let numberFromParse: number = parseInt(strNum, 10);
+
+  toString()
+  
+  let stringFromNumber: string = numberFromParse.toString();
+
+  console.log("Original string:", strNum);
+  
+  console.log("Number from string:", numberFromParse);
+  
+  console.log("String from number:", stringFromNumber);
+  
+};
+
+convertTypes();
+
+
+Q4 color values red green .......
+
+const defineColor = () => {
+  
+  enum Color {
+    Red = "Red",
+    
+    Green = "Green",
+    
+    White = "White",
+    
+    Blue = "Blue",
+    
+  }
+
+  
+  let selectedColor: Color = Color.Green; 
+
+  console.log("Selected Color:", selectedColor);
+};
+
+defineColor();
+
+
+Q5 accepts two arguments array of type two indices.......
+
+
+
+const swapElements = <T>(arr: T[], index1: number, index2: number): T[] => {
+  
+  if (index1 < 0 || index1 >= arr.length || index2 < 0 || index2 >= arr.length) {
+    throw new Error("Invalid indices for swapping");
+  }
+
+  
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+
+  
+  return arr;
+};
+
+
+let numbers: number[] = [1, 2, 3, 4];
+
+let swappedNumbers = swapElements(numbers, 0, 2);
+
+console.log("Original array:", numbers);
+
+console.log("Swapped array:", swappedNumbers);
+
+
+Q6 class bus.......
+
+
+
+class Bus {
+  
+  public make: string;
+  
+  public model: string;
+  
+  public year: number;
+
+  
+  constructor(make: string, model: string, year: number) {
+  
+    this.make = make;
+    
+    this.model = model;
+    
+    this.year = year;
+  }
+}
+
+
+let myBus = new Bus("Ford", "E-Series", 2023);
+
+console.log("Bus Details:");
+
+console.log(`Make: ${myBus.make}`);
+
+console.log(`Model: ${myBus.model}`);
+
+console.log(`Year: ${myBus.year}`);
+
+
+Q7 car with properties.......
+
+
+class Engine {
+
+  public horsepower: number;
+  
+  public fuelType: string;
+
+  constructor(horsepower: number, fuelType: string) {
+  
+    this.horsepower = horsepower;
+    
+    this.fuelType = fuelType;
+  }
+}
+
+
+class Car {
+
+  public make: string;
+  
+  public model: string;
+  
+  public year: number;
+  
+  public engine: Engine;
+
+  constructor(make: string, model: string, year: number, engine: Engine) {
+  
+    this.make = make;
+    
+    this.model = model;
+    
+    this.year = year;
+    
+    this.engine = engine;
+    
+  }
+
+  public start() {
+    console.log("Car starting...");
+  }
+
+  public printCarDetails() {
+  
+    console.log("Car Details:");
+    
+    console.log(`Make: ${this.make}`);
+    
+    console.log(`Model: ${this.model}`);
+    
+    console.log(`Year: ${this.year}`);
+    
+    console.log("Engine Details:");
+    
+    console.log(`Horsepower: 
+    
+    ${this.engine.horsepower}`);
+    
+    console.log(`Fuel Type: 
+    
+    ${this.engine.fuelType}`);
+  }
+}
+
+
+let electricEngine = new Engine(200, "Electric");
+
+let electricCar = new Car("Tesla", "Model S", 2024, electricEngine);
+
+electricCar.start();
+
+electricCar.printCarDetails();
+
+
+Q8 student with properties.........
+
+
+Fist file. Ts
+
+export const add = (x: number, y: number): number => {
+
+  return x + y;
+  
+};
+
+export const subtract = (x: number, y: number): number => {
+
+  return x - y;
+  
+};
+
+export const PI = 3.14159;
+
+Main. Ts
+
+import { add, subtract, PI } from "./mathUtils"; 
+
+console.log("Sum:", add(5, 3));
+
+console.log("Difference:", subtract(10, 2));
+
+console.log("Value of PI:", PI);
+
+
+Q9 multiple functions and variable naned exports ......
+
+
+
+Fist. Ts
+
+export const add = (x: number, y: number): number => {
+  return x + y;
+  
+};
+
+export const subtract = (x: number, y: number): number => {
+
+  return x - y;
+  
+};
+
+export const multiply = (x: number, y: number): number => {
+
+  return x * y; // Added multiplication function
+  
+};
+
+export const PI = 3.14159;
+
+Main. Ts
+
+
+import { add, subtract, multiply, PI } 
+
+console.log("Sum:", add(5, 3));
+
+console.log("Difference:", subtract(10, 2));
+
+console.log("Product:", multiply(4, 6)); 
+
+console.log("Value of PI:", PI);
+
+
+
+14. Write a function print ShapeInfo(shape:Circle | Rectangle) that prints the area of the shape. Use type narrowing to determine whether the shape is a Circle of Rectangle. Use type guards to safely access the properties specific to each shape type. (take user input)
+
+
+Q14
+interface Shape {
+
+  getArea(): number;
+}
+
+class Circle implements Shape {
+
+  constructor(public radius: number) {}
+
+  getArea(): number {
+  
+    return Math.PI * 
+    
+    Math.pow(this.radius, 2);
+    
+ }
+}
+class Rectangle implements Shape {
+
+  constructor(public width: number, public height: number) {}
+
+  getArea(): number {
+  
+    return this.width * this.height;
+  }
+}
+const printShapeInfo = (shape: Shape): void => {
+
+  let area: number;
+  
+ if (shape instanceof Circle) {
+ 
+    area = shape.getArea();
+    
+    console.log("Circle Area:", area);
+    
+  } else if (shape instanceof Rectangle) {
+  
+    area = shape.getArea();
+    
+    console.log("Rectangle Area:", area);
+    
+  } else {
+  
+    console.error("Unsupported shape type");
+    
+  }
+};
+ conversion (consider error handling)
+ 
+let userInput = prompt("Enter shape type (circle or rectangle):").toLowerCase();
+let shape: Shape;
+
+if (userInput === "circle") {
+
+  let radius = Number(prompt("Enter circle radius:"));
+  
+  shape = new Circle(radius);
+  
+} else if (userInput === "rectangle") {
+  let width = Number(promptly ("Enter rectangle width:"));
+  
+  let height = Number(prompt("Enter rectangle height:"));
+  
+  shape = new Rectangle(width, height);
+} else {
+
+  console.error("Invalid shape type. Please enter 'circle' or 'rectangle'.");
+}
+
+printShapeInfo(shape);
+
+
+
+
+
+
 
 
