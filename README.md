@@ -123,8 +123,31 @@ sudo docker container stop (Id)
 
 11) create iss53 branch "git branch iss53"
 
+
+
 12) "git checkout iss53" "git push origin iss53"
 
 13) create index.html in iss53 "touch index.html" and also update readme.md file in the iss53 branch then commit and push the changes on git repoi
 
 14) difference "git log" for find hashes then copy c1 hash and c2 hash and paste it in "git diff c1.hash c2.hash" command as well as use command "git diff main iss53"
+
+# hotfix 
+
+1) create hotfix "git branch hotfix"
+
+2) git checkout hotfix
+
+3) touch new.txt
+
+4) git branch origin hotfix
+
+5) commit changes and push the new.txt in repo
+
+6) merge "git checkout main" "git merge hotfix"  "git push origin --delete hotfix"
+
+7) merge iss53 "git checkout main"
+
+8) "git merge iss53"
+
+9) git push origin --delete iss53
+   
